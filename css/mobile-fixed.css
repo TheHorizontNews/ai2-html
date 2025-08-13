@@ -25,18 +25,41 @@ html, body {
     padding-right: clamp(16px, 4vw, 40px) !important;
   }
   
-  /* Limit text content width for better readability */
-  .section p,
-  .section .lead,
-  .section ul,
-  .section ol {
-    max-width: 800px !important;
+  /* Card content with proper padding */
+  .card {
+    padding: 24px !important;
   }
   
-  /* Special content blocks with limited width */
   .card p,
-  .card .lead {
-    max-width: none !important; /* Cards should use full card width */
+  .card .lead,
+  .card ul,
+  .card ol,
+  .card h2,
+  .card h3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Section cards need extra padding for text content */
+  .section.card {
+    padding: 32px !important;
+  }
+  
+  .section.card p,
+  .section.card .lead,
+  .section.card ul,
+  .section.card ol {
+    max-width: none !important; /* Remove width limits for card content */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* Limit text content width only for main content sections */
+  .section:not(.card) p,
+  .section:not(.card) .lead,
+  .section:not(.card) ul,
+  .section:not(.card) ol {
+    max-width: 800px !important;
   }
   
   /* Hero content limits */
@@ -45,10 +68,19 @@ html, body {
     max-width: 600px !important;
   }
   
-  /* Text blocks in main content */
+  /* Text blocks in main content (not in cards) */
   main > .container > p,
   main > .container > .lead {
     max-width: 800px !important;
+  }
+  
+  /* Grid layouts inside cards need proper spacing */
+  .card .grid-2 {
+    gap: 24px !important;
+  }
+  
+  .card .split {
+    gap: 24px !important;
   }
 }
 
