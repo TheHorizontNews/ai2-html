@@ -274,5 +274,27 @@ main{padding-block:30px}
 </main>
 
 <footer class="container"><p>© 2025 AI Review Hub — fast, accessible reviews of AI characters.</p></footer>
-  <script defer src="/js/aihub.v8.enhance.js"></script>
+
+<!-- Service Worker Registration -->
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('/sw.js')
+      .then(registration=>console.log('SW registered:',registration))
+      .catch(error=>console.log('SW registration failed:',error));
+  });
+}
+</script>
+
+<!-- Load non-critical CSS after page load -->
+<script>
+window.addEventListener('load',()=>{
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='/css/aihub.v8.patch.css';
+  document.head.appendChild(link);
+});
+</script>
+
+<script defer src="/js/aihub.v8.enhance.js"></script>
 </body></html>
