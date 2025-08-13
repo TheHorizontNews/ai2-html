@@ -216,7 +216,51 @@ html, body {
   top: 0;
 }
 
-/* Hero section mobile fixes */
+/* Hero section - RESTORED ORIGINAL DESKTOP, mobile fixes only for mobile */
+@media (min-width: 981px) {
+  .hero {
+    display: grid !important;
+    grid-template-columns: 1.1fr 1fr !important;
+    gap: 20px !important;
+    align-items: center !important;
+    padding: 56px 0 18px !important;
+  }
+  
+  .hero h1 {
+    font-size: clamp(36px, 5.6vw, 48px) !important;
+    letter-spacing: -0.5px !important;
+    margin: 0.5rem 0 0.75rem !important;
+    text-align: left !important;
+  }
+  
+  .hero .lead {
+    color: var(--muted) !important;
+    max-width: 760px !important;
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+  }
+  
+  .hero-art {
+    min-height: 520px !important;
+    border-radius: 26px !important;
+    background: radial-gradient(60% 60% at 65% 35%, rgba(255, 53, 85, 0.28), transparent 60%), 
+                radial-gradient(60% 60% at 35% 60%, rgba(138, 43, 226, 0.28), transparent 60%), 
+                #0d0e11 !important;
+    border: 1px solid var(--bd) !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+  
+  .hero-art img {
+    position: absolute !important;
+    right: -2% !important;
+    bottom: -6% !important;
+    width: min(520px, 60%) !important;
+    filter: drop-shadow(0 12px 40px rgba(255, 53, 85, 0.25)) !important;
+  }
+}
+
+/* Mobile hero fixes - ONLY for mobile */
 @media (max-width: 980px) {
   .hero {
     grid-template-columns: 1fr !important;
