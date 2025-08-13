@@ -1,0 +1,453 @@
+/* Enhanced Review Page Design */
+
+/* Hero section with improved visual hierarchy */
+.review-hero {
+  position: relative;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.review-meta a {
+  color: var(--c);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.review-meta a:hover {
+  color: var(--text);
+}
+
+.review-title {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text), var(--muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.review-banner {
+  position: relative;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+}
+
+.review-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 60%, rgba(5, 213, 255, 0.1));
+  pointer-events: none;
+}
+
+/* Enhanced score display */
+.review-score {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.review-score::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--r), var(--v));
+}
+
+.score-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.score-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--r), var(--v));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.score-label {
+  color: var(--muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.score-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.score-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 999px;
+  font-size: 12px;
+  color: #22c55e;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Enhanced pros/cons cards */
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pros-card, .cons-card {
+  padding: 2rem;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pros-card {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(34, 197, 94, 0.02));
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.cons-card {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.pros-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #22c55e;
+}
+
+.cons-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #ef4444;
+}
+
+.pros-cons h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.pros-card h2 {
+  color: #22c55e;
+}
+
+.cons-card h2 {
+  color: #ef4444;
+}
+
+.pros-cons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pros-cons li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.pros-card li::before {
+  content: '✓';
+  color: #22c55e;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.cons-card li::before {
+  content: '✕';
+  color: #ef4444;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* Enhanced rating display */
+.rating-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 20px;
+}
+
+.rating-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rating-label {
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rating-bar {
+  height: 8px;
+  background: var(--bd);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rating-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--r), var(--v));
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+.rating-value {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Enhanced alternatives section */
+.alternatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.alternative-card {
+  position: relative;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.alternative-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(5, 213, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.alternative-card:hover::before {
+  opacity: 1;
+}
+
+.alternative-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  border-color: var(--c);
+}
+
+/* Enhanced FAQ section */
+.faq {
+  margin: 3rem 0;
+}
+
+.faq details {
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq details[open] {
+  border-color: var(--c);
+  box-shadow: 0 10px 40px rgba(5, 213, 255, 0.1);
+}
+
+.faq summary {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.faq summary::marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--c);
+  transition: transform 0.3s ease;
+}
+
+.faq details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq summary:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.faq p {
+  padding: 0 1.5rem 1.5rem;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Share buttons */
+.share-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 16px;
+}
+
+.share-label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.share-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.share-btn:hover {
+  border-color: var(--c);
+  color: var(--c);
+  background: rgba(5, 213, 255, 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .pros-cons {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .review-score {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .score-main {
+    align-items: center;
+  }
+  
+  .rating-breakdown {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .alternatives-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .share-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-hero {
+    padding: 1rem 0;
+  }
+  
+  .review-score {
+    margin: 1rem -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .pros-card, .cons-card {
+    padding: 1.5rem;
+  }
+}
