@@ -427,6 +427,10 @@ html, body {
     border: 1px solid var(--bd) !important;
     overflow: hidden !important;
     position: relative !important;
+    will-change: transform !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
   }
   
   .hero-art img {
@@ -434,7 +438,10 @@ html, body {
     right: -2% !important;
     bottom: -6% !important;
     width: min(520px, 60%) !important;
+    height: auto !important;
     filter: drop-shadow(0 12px 40px rgba(255, 53, 85, 0.25)) !important;
+    object-fit: contain !important;
+    max-height: 110% !important;
   }
 }
 
@@ -469,21 +476,35 @@ html, body {
   .hero-art {
     width: 100% !important;
     max-width: 100% !important;
-    min-height: 250px !important;
+    min-height: 300px !important;
+    height: 300px !important;
     margin: 1rem 0 0 0 !important;
     box-sizing: border-box !important;
+    background: radial-gradient(60% 60% at 65% 35%, rgba(255, 53, 85, 0.28), transparent 60%), 
+                radial-gradient(60% 60% at 35% 60%, rgba(138, 43, 226, 0.28), transparent 60%), 
+                #0d0e11 !important;
+    border: 1px solid var(--bd) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .hero-art img {
-    width: 100% !important;
+    width: 90% !important;
+    height: 90% !important;
     max-width: 100% !important;
-    height: auto !important;
+    max-height: 100% !important;
     object-fit: cover !important;
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     right: auto !important;
     bottom: auto !important;
+    filter: drop-shadow(0 8px 20px rgba(255, 53, 85, 0.2)) !important;
   }
 }
 
