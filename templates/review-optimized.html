@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}"/>
+
+<!-- Performance optimizations -->
+<link rel="preload" href="/css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/style.min.css"></noscript>
+<link rel="preload" as="script" href="/js/app.min.js">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Critical CSS inline -->
+<style>
+:root{--bg:#070708;--panel:#0b0c0d;--panel2:#0f1113;--text:#f3f6fb;--muted:#a6b1c7;--bd:#1b1d20;--r:#ff3555;--v:#8a2be2;--c:#05d5ff;--radius:22px;--container:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 800px at 110% -10%,rgba(255,53,85,.24),transparent 60%),radial-gradient(900px 700px at -10% -20%,rgba(138,43,226,.22),transparent 60%),var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.container{max-width:var(--container);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.header{position:sticky;top:0;z-index:60;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.header.fixed{backdrop-filter:saturate(160%) blur(10px);background:color-mix(in oklab,#0b0c0e,transparent 22%);border-color:var(--bd)}
+.header__in{display:flex;align-items:center;gap:14px;min-height:76px;justify-content:space-between}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:900;text-decoration:none;color:var(--text);white-space:nowrap;flex-shrink:0}
+.logo i{width:14px;height:14px;border-radius:999px;background:linear-gradient(135deg,var(--r),var(--v));box-shadow:0 0 18px rgba(255,53,85,.6)}
+.nav{display:flex;gap:20px;align-items:center}
+.nav a{padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--text)}
+.nav a:hover{background:color-mix(in oklab,var(--r),transparent 90%)}
+.h1{font-size:clamp(36px,5.6vw,48px);letter-spacing:-.5px;margin:.5rem 0 .75rem}
+.h2{font-size:clamp(22px,3vw,30px);margin:0 0 10px}
+.lead{color:var(--muted);max-width:760px}
+main{padding-block:30px}
+.banner{width:100%;height:auto;aspect-ratio:21/9;max-height:260px;object-fit:cover;border-radius:22px;border:1px solid var(--bd)}
+@media(max-width:980px){.banner{aspect-ratio:16/9;max-height:220px}}
+@media(max-width:640px){.banner{max-height:200px}}
+.card{background:linear-gradient(180deg,#0b0c0e,#0a0b0d);border:1px solid var(--bd);border-radius:22px;padding:18px;box-shadow:0 18px 44px rgba(0,0,0,.45),0 0 40px rgba(138,43,226,.12)}
+.grid-2{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+@media(max-width:980px){.grid-2{grid-template-columns:1fr}}
+.meta{color:var(--muted);margin-bottom:1rem}
+.meta a{color:var(--c);text-decoration:none}
+.meta a:hover{text-decoration:underline}
+</style>
+
+<script defer src="/js/app.min.js"></script>
+{{STRUCTURED_DATA}}
+<script type='application/ld+json'>{{BREADCRUMBS}}</script>
+</head><body>
+<header class="header" id="hdr"><div class="container header__in">
+<a class="logo" href="/"><i></i><span>AI Review Hub</span></a>
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><i></i></button>
+<nav class="nav" id="site-nav">
+  <a href="/">Home</a>
+  <a href="/reviews/">Reviews</a>
+  <a href="/comparisons/">Comparisons</a>
+  <a href="/clusters/">Clusters</a>
+  <a href="/guides/">Guides</a>
+  <a href="/blog/">Blog</a>
+</nav>
+</div></header>
+<div class="lights" aria-hidden="true"><span class="orb red"></span><span class="orb vio"></span><span class="orb cya"></span><span class="cursor-glow"></span></div>
+
+<main class="container">
+  {{CONTENT}}
+</main>
+
+<footer class="container"><p>© 2025 AI Review Hub — fast, accessible reviews of AI characters.</p></footer>
+
+<!-- Load non-critical CSS after page load -->
+<script>
+window.addEventListener('load',()=>{
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='/css/aihub.v8.patch.css';
+  document.head.appendChild(link);
+});
+</script>
+
+<script defer src="/js/aihub.v8.enhance.js"></script>
+</body></html>
