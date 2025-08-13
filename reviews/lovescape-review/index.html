@@ -13,12 +13,24 @@
 <!-- Load review-specific styles -->
 <script>
 window.addEventListener('load',()=>{
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = '/css/review-design.css';
-  document.head.appendChild(link);
+  const stylesheets = [
+    '/css/mobile-fixed.css',
+    '/css/review-design.css'
+  ];
+  
+  stylesheets.forEach((href, i) => {
+    setTimeout(() => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    }, i * 100);
+  });
 });
 </script>
+
+<script defer src="/js/mobile-fixed.js"></script>
+<script defer src="/js/aihub.v8.enhance.js"></script>
   <link rel="stylesheet" href="/css/aihub.v8.patch.css">
 </head><body>
 <header class="header" id="hdr"><div class="container header__in">
