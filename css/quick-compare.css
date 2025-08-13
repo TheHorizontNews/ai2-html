@@ -1,0 +1,276 @@
+/* Quick Compare System */
+
+.quick-compare {
+  background: linear-gradient(135deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 22px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.quick-compare h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.compare-slots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.compare-slot {
+  position: relative;
+  background: var(--bg);
+  border: 2px dashed var(--bd);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 150px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.compare-slot.filled {
+  border-style: solid;
+  border-color: var(--c);
+  background: linear-gradient(135deg, rgba(5, 213, 255, 0.1), rgba(138, 43, 226, 0.1));
+}
+
+.slot-label {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.compare-slot.filled .slot-label {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.slot-clear {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: var(--r);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.slot-clear:hover {
+  background: #ff1c41;
+  transform: scale(1.1);
+}
+
+.compare-vs {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--muted);
+  padding: 0 1rem;
+}
+
+.compare-btn {
+  margin-top: 1rem;
+}
+
+.compare-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--bd);
+  color: var(--muted);
+}
+
+/* Card compare buttons */
+.card {
+  position: relative;
+}
+
+.card-compare-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: var(--bg);
+  border: 2px solid var(--bd);
+  border-radius: 50%;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.card-compare-btn:hover {
+  border-color: var(--c);
+  color: var(--c);
+  background: rgba(5, 213, 255, 0.1);
+}
+
+.card-compare-btn.active {
+  background: linear-gradient(135deg, var(--r), var(--v));
+  border-color: transparent;
+  color: #fff;
+}
+
+.card-compare-btn.active:hover {
+  background: linear-gradient(135deg, #ff1c41, #7c3aed);
+}
+
+/* Comparison modal */
+.comparison-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 2rem;
+}
+
+.modal-content {
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  border: 1px solid var(--bd);
+  border-radius: 22px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text);
+}
+
+.comparison-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-preview {
+  flex: 1;
+  padding: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+}
+
+.app-preview h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.vs-divider {
+  font-weight: 900;
+  color: var(--muted);
+  padding: 0 0.5rem;
+}
+
+.modal-close {
+  margin-top: 1rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .compare-slots {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .compare-vs {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+  
+  .comparison-preview {
+    flex-direction: column;
+  }
+  
+  .vs-divider {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+  
+  .card-compare-btn {
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-compare {
+    margin: 1rem -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .comparison-modal {
+    padding: 1rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation for adding apps */
+.compare-slot.adding {
+  animation: slotFill 0.3s ease;
+}
+
+@keyframes slotFill {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); border-color: var(--c); }
+  100% { transform: scale(1); }
+}
+
+/* Pulse animation for compare button when ready */
+.compare-btn:not(:disabled) {
+  position: relative;
+  overflow: hidden;
+}
+
+.compare-btn:not(:disabled)::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shine 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
