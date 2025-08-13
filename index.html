@@ -330,7 +330,9 @@ if('serviceWorker' in navigator){
 window.addEventListener('load',()=>{
   const stylesheets = [
     '/css/aihub.v8.patch.css',
-    '/css/mobile-enhanced.css'
+    '/css/mobile-enhanced.css',
+    '/css/search-system.css',
+    '/css/quick-compare.css'
   ];
   
   stylesheets.forEach((href, i) => {
@@ -345,5 +347,7 @@ window.addEventListener('load',()=>{
 </script>
 
 <script defer src="/js/mobile-enhancements.js"></script>
+<script defer src="/js/search-system.js"></script>
+<script defer src="/js/quick-compare.js"></script>
 <script defer src="/js/aihub.v8.enhance.js"></script>
 </body></html>
