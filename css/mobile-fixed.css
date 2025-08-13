@@ -17,12 +17,38 @@ html, body {
   box-sizing: border-box !important;
 }
 
-/* Desktop container - keep original design */
+/* Desktop text content limits for better readability */
 @media (min-width: 981px) {
   .container {
     max-width: 1280px !important;
     padding-left: clamp(16px, 4vw, 40px) !important;
     padding-right: clamp(16px, 4vw, 40px) !important;
+  }
+  
+  /* Limit text content width for better readability */
+  .section p,
+  .section .lead,
+  .section ul,
+  .section ol {
+    max-width: 800px !important;
+  }
+  
+  /* Special content blocks with limited width */
+  .card p,
+  .card .lead {
+    max-width: none !important; /* Cards should use full card width */
+  }
+  
+  /* Hero content limits */
+  .hero p,
+  .hero .lead {
+    max-width: 600px !important;
+  }
+  
+  /* Text blocks in main content */
+  main > .container > p,
+  main > .container > .lead {
+    max-width: 800px !important;
   }
 }
 
@@ -32,6 +58,11 @@ html, body {
     max-width: 960px !important;
     padding-left: 30px !important;
     padding-right: 30px !important;
+  }
+  
+  .section p,
+  .section .lead {
+    max-width: 700px !important;
   }
 }
 
