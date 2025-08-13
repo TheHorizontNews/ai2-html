@@ -15,10 +15,20 @@
     navToggle.innerHTML = '';
     navToggle.appendChild(line);
 
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
       const isOpen = document.body.classList.toggle('nav-open');
       navToggle.classList.toggle('active', isOpen);
       navToggle.setAttribute('aria-expanded', isOpen);
+      
+      // Add class to nav for mobile overlay
+      if (isOpen) {
+        nav.classList.add('nav-open');
+      } else {
+        nav.classList.remove('nav-open');
+      }
       
       // Prevent scrolling when menu is open
       document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -28,6 +38,7 @@
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         document.body.classList.remove('nav-open');
+        nav.classList.remove('nav-open');
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
@@ -38,6 +49,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && document.body.classList.contains('nav-open')) {
         document.body.classList.remove('nav-open');
+        nav.classList.remove('nav-open');
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
@@ -50,6 +62,7 @@
           !nav.contains(e.target) && 
           !navToggle.contains(e.target)) {
         document.body.classList.remove('nav-open');
+        nav.classList.remove('nav-open');
         navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
