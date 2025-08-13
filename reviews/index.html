@@ -79,5 +79,25 @@ main{padding-block:30px}
 </main>
 
 <footer class="container"><p>© 2025 AI Review Hub — fast, accessible reviews of AI characters.</p></footer>
-  <script defer src="/js/aihub.v8.enhance.js"></script>
+
+<!-- Load non-critical CSS after page load -->
+<script>
+window.addEventListener('load',()=>{
+  const stylesheets = [
+    '/css/aihub.v8.patch.css',
+    '/css/mobile-fixed.css'
+  ];
+  
+  stylesheets.forEach((href, i) => {
+    setTimeout(() => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.head.appendChild(link);
+    }, i * 100);
+  });
+});
+</script>
+
+<script defer src="/js/aihub.v8.enhance.js"></script>
 </body></html>
