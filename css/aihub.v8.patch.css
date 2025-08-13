@@ -1,0 +1,132 @@
+/* v2.1 additions to keep v8 layout intact */
+.compare-row{display:grid;grid-template-columns: 1.05fr .95fr;gap:24px;align-items:stretch}
+@media (max-width: 1100px){ .compare-row{grid-template-columns:1fr} .radar-card{min-height:420px} }
+
+.mini-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.badge-chip.mini{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);font-size:12px;text-decoration:none}
+.badge-chip.mini img{width:16px;height:16px;border-radius:4px;margin-right:6px;display:inline-block}
+
+.card.radar-card{display:flex;justify-content:center;align-items:center;min-height:520px}
+
+.legend-chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.legend-item{display:inline-flex;align-items:center;font-size:12px;color:rgba(255,255,255,.85);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:4px 8px;border-radius:999px}
+.legend-dot{width:10px;height:10px;border-radius:50%;margin-right:6px;display:inline-block}
+
+/* Gradient buttons for Bento/Clusters (from v2) */
+.btn-cta{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.25rem;border-radius:999px;color:#fff !important;border:1px solid rgba(255,255,255,.12);box-shadow:0 8px 30px rgba(0,0,0,.32);transition:transform .15s ease, box-shadow .15s ease, opacity .2s ease}
+.btn-cta:hover{transform:translateY(-1px);box-shadow:0 10px 34px rgba(0,0,0,.42);opacity:.96}
+.btn-cta:active{transform:translateY(0)}
+/* ==== Center content on mobile & small tablets, keep desktop as is ==== */
+@media (max-width: 1024px) {
+  /* hero */
+  .hero { 
+    grid-template-columns: 1fr !important; 
+    justify-items: center; 
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .hero > div { 
+    margin-inline: auto; 
+    text-align: center; 
+    max-width: 720px;
+  }
+  .hero .badge { margin-inline: auto; }
+  .hero p { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 12px; }
+
+  /* секции */
+  .section .h2 { text-align: center; margin-inline: auto; }
+  .section > p.lead { text-align: center; }
+
+  /* bento */
+  .bento { justify-items: center; }
+  .bento a { text-align: center; }
+
+  /* карточки списков */
+  .cards { justify-items: center; }
+  .cards .card { text-align: center; }
+  .cards .card .brand { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 12px;
+  }
+  .cards .card .brand > div { text-align: center; }
+
+  /* двухколоночные SEO-блоки → в столбик и по центру */
+  .grid-2 { 
+    grid-template-columns: 1fr !important; 
+    gap: 20px;
+    text-align: center;
+  }
+  /* списки в SEO-блоках оставляю читаемыми (выравнивание по левому краю, но центрирую блок) */
+  .grid-2 ul, .grid-2 ol { 
+    text-align: left; 
+    margin: 0 auto; 
+    max-width: 680px;
+  }
+
+  /* FAQ — центрирую контейнер, сам текст читаем слева */
+  .faq { text-align: center; }
+  .faq details { 
+    text-align: left; 
+    max-width: 760px; 
+    margin: 0 auto;
+  }
+
+  /* кнопки — ровно по центру везде, если родитель не center */
+  .btn { 
+    display: inline-flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  .section .btn { margin-inline: auto; }
+}
+
+/* Небольшой твик на очень узких экранах */
+@media (max-width: 420px) {
+  .hero .h1 { font-size: clamp(28px, 7vw, 36px); }
+  .cards { grid-template-columns: 1fr !important; }
+  .bento { grid-template-columns: 1fr !important; }
+}
+/* Колонки hero тянутся по высоте секции */
+.hero{
+  align-items: stretch;            /* важно: правая колонка растягивается */
+}
+
+/* Правый блок с изображением — карточка на всю доступную высоту/ширину */
+.hero-art{
+  position: relative;
+  width: 100%;
+  height: 100%;                    /* на всю высоту строки грида */
+  min-height: clamp(360px, 52vh, 720px); /* чтобы был внятный размер на коротких экранах */
+  border-radius: 32px;
+  overflow: hidden;
+  max-width: none !important;      /* если где-то стоял max-width, снимаем */
+  justify-self: end;               /* держим у правого края на десктопе */
+}
+
+/* Картинка покрывает всю карточку */
+.hero-art > img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;               /* заполняет блок, без полос по краям */
+  object-position: center;         /* прикадрировать по центру */
+  display: block;
+}
+
+/* Адаптив: на мобиле центрируем и задаем разумную высоту */
+@media (max-width: 1024px){
+  .hero{
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    text-align: center;
+  }
+  .hero-art{
+    justify-self: center;
+    min-height: clamp(300px, 60vw, 560px);
+    width: min(90vw, 680px);
+  }
+}
